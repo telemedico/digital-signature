@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  esignature:
+    container_name: esignature
+    build:
+      context: ./
+      target: development
+    ports:
+      - "8079:80"
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    networks:
+      - monolith_network
+      - monolith_internal
+      - telemedi_nginx_proxy
+
+networks:
+  monolith_internal:
+    internal: true
+  monolith_network:
+    name: monolith_network
+    driver: bridge
+  telemedi_nginx_proxy:
+    external:
+      name: nginx-proxy
