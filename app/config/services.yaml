@@ -19,11 +19,19 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+            - '../src/DigitalSignature/*'
+
+    App\DigitalSignature\:
+        resource: '../src/DigitalSignature/'
+        exclude:
+            - '../src/DigitalSignature/UI/Api/Model/'
 
     _instanceof:
         App\Shared\Infrastructure\CQRS\Contract\CommandHandler:
             tags:
                 - { name: messenger.message_handler, bus: command.bus }
+
         App\Shared\Infrastructure\CQRS\Contract\QueryHandler:
             tags:
                 - { name: messenger.message_handler, bus: query.bus }
+
