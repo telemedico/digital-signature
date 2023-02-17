@@ -4,7 +4,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-
+    soap.client.url: '%env(resolve:SOAP_CLIENT_URL)%'
+    soap.client.cert: '%env(resolve:SOAP_CLIENT_CERT)%'
+    soap.client.cert_password: '%env(resolve:SOAP_CLIENT_CERT_PASSWORD)%'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -34,4 +36,10 @@ services:
         App\Shared\Infrastructure\CQRS\Contract\QueryHandler:
             tags:
                 - { name: messenger.message_handler, bus: query.bus }
+
+    App\DigitalSignature\Infrastructure\SoapClient\Config\SoapConfig:
+        arguments:
+            $url: '%soap.client.url%'
+            $cert: '%soap.client.cert%'
+            $certPassword: '%soap.client.cert_password%'
 
