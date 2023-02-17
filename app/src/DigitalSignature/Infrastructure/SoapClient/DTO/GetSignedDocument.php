@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\DigitalSignature\Infrastructure\Soap\DTO;
+namespace App\DigitalSignature\Infrastructure\SoapClient\DTO;
 
 class GetSignedDocument
 {
     public function __construct(
         private string $requestUrl,
         private int $requestWideId,
-        private string $authSubject,
-        private string $extra
+        private ?string $authSubject = null,
+        private ?string $extra = null
     ) {
     }
 
@@ -24,14 +24,14 @@ class GetSignedDocument
         return $this->requestWideId;
     }
 
-    public function getAuthSubject(): string
-    {
-        return $this->authSubject;
-    }
-
-    public function getExtra(): string
+    public function getExtra(): ?string
     {
         return $this->extra;
+    }
+
+    public function getAuthSubject(): ?string
+    {
+        return $this->authSubject;
     }
 }
 

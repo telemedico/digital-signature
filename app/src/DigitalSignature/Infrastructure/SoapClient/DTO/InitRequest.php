@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\DigitalSignature\Infrastructure\Soap\DTO;
+namespace App\DigitalSignature\Infrastructure\SoapClient\DTO;
 
 class InitRequest
 {
     public function __construct(
         private string $successUrl,
         private string $failureUrl,
-        private string $requestInfo,
-        private string $authSubject,
-        private string $extra
+        private ?string $requestInfo = null,
+        private ?string $authSubject = null,
+        private ?string $extra = null
     ) {
     }
 
@@ -25,17 +25,17 @@ class InitRequest
         return $this->failureUrl;
     }
 
-    public function getRequestInfo(): string
+    public function getRequestInfo(): ?string
     {
         return $this->requestInfo;
     }
 
-    public function getAuthSubject(): string
+    public function getAuthSubject(): ?string
     {
         return $this->authSubject;
     }
 
-    public function getExtra(): string
+    public function getExtra(): ?string
     {
         return $this->extra;
     }

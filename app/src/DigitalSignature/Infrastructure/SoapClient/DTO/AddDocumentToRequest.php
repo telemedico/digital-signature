@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DigitalSignature\Infrastructure\Soap\DTO;
+namespace App\DigitalSignature\Infrastructure\SoapClient\DTO;
 
 class AddDocumentToRequest
 {
@@ -11,9 +11,9 @@ class AddDocumentToRequest
         private string $documentInfo,
         private int $requestWideId,
         private string $unsignedContent,
-        private ArrayOfAttachmentDto $attachments,
-        private string $authSubject,
-        private string $extra
+        private ?ArrayOfAttachmentDto $attachments = null,
+        private ?string $authSubject = null,
+        private ?string $extra = null,
     ) {
     }
 
@@ -37,17 +37,17 @@ class AddDocumentToRequest
         return $this->unsignedContent;
     }
 
-    public function getAttachments(): ArrayOfAttachmentDto
+    public function getAttachments(): ?ArrayOfAttachmentDto
     {
         return $this->attachments;
     }
 
-    public function getAuthSubject(): string
+    public function getAuthSubject(): ?string
     {
         return $this->authSubject;
     }
 
-    public function getExtra(): string
+    public function getExtra(): ?string
     {
         return $this->extra;
     }
