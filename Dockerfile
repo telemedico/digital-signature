@@ -27,6 +27,7 @@ RUN set -eux; \
     apk add supervisor; \
     apk add tzdata; \
     apk add musl; \
+    apk add libxslt-dev; \
     apk add libxml2-dev; \
     apk add php8-intl; \
     apk add php8-bcmath; \
