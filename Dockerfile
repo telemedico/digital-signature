@@ -29,10 +29,12 @@ RUN set -eux; \
     apk add musl; \
     apk add libxml2-dev; \
     apk add php8-intl; \
+    apk add php8-bcmath; \
     apk add php8-opcache; \
     apk add php8-common; \
     apk add php8-xml; \
     apk add php8-zip; \
+    apk add php8-xsl; \
     apk add php8-soap; \
     apk add php8-pdo; \
     apk add php8-pdo_pgsql; \
@@ -51,6 +53,8 @@ ARG COMPOSER_AUTH="{}"
 RUN apk add --no-cache postgresql-dev; \
     docker-php-ext-install intl; \
     docker-php-ext-enable intl; \
+    docker-php-ext-install bcmath; \
+    docker-php-ext-enable bcmath; \
     docker-php-ext-install opcache; \
     docker-php-ext-enable opcache; \
     docker-php-ext-install common; \
@@ -63,6 +67,8 @@ RUN apk add --no-cache postgresql-dev; \
     docker-php-ext-enable xmlrpc; \
     docker-php-ext-install soap; \
     docker-php-ext-enable soap; \
+    docker-php-ext-install xsl; \
+    docker-php-ext-enable xsl; \
     docker-php-ext-install pdo_mysql; \
     docker-php-ext-enable pdo_mysql; \
     docker-php-ext-install pdo_pgsql; \
