@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DigitalSignature\Intrastructure\WriteModel\Repository;
+namespace App\DigitalSignature\Infrastructure\WriteModel\Repository;
 
 use App\DigitalSignature\Domain\WriteModel\Repository\SingingUrlWriteModelRepositoryInterface;
 use App\DigitalSignature\Domain\WriteModel\ViewModel\SingingUrl;
