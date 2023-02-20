@@ -6,61 +6,31 @@ namespace App\DigitalSignature\Application\Command\DTO;
 
 class AddDocumentToSigningDTO
 {
-    private string $doc;
-
-    private string $successUrl;
-
-    private string $failureURL;
-
-    private string $additionalInfo;
-
-    private ?string $selectedSignatureMethod;
-
-    private ?string $cancelURL;
-
     public function __construct(
-        string $doc,
-        string $successUrl,
-        string $failureURL,
-        string $additionalInfo,
-        string $selectedSignatureMethod = null,
-        string $cancelURL = null
+        private string $requestUrl,
+        private string $documentInfo,
+        private int $requestWideId,
+        private string $unsignedContent
     ) {
-        $this->doc = $doc;
-        $this->successUrl = $successUrl;
-        $this->failureURL = $failureURL;
-        $this->additionalInfo = $additionalInfo;
-        $this->selectedSignatureMethod = $selectedSignatureMethod;
-        $this->cancelURL = $cancelURL;
     }
 
-    public function getAdditionalInfo(): string
+    public function getDocumentInfo(): string
     {
-        return $this->additionalInfo;
+        return $this->documentInfo;
     }
 
-    public function getCancelURL(): ?string
+    public function getRequestUrl(): string
     {
-        return $this->cancelURL;
+        return $this->requestUrl;
     }
 
-    public function getDoc(): string
+    public function getRequestWideId(): int
     {
-        return $this->doc;
+        return $this->requestWideId;
     }
 
-    public function getFailureURL(): string
+    public function getUnsignedContent(): string
     {
-        return $this->failureURL;
-    }
-
-    public function getSelectedSignatureMethod(): ?string
-    {
-        return $this->selectedSignatureMethod;
-    }
-
-    public function getSuccessUrl(): string
-    {
-        return $this->successUrl;
+        return $this->unsignedContent;
     }
 }

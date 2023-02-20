@@ -9,8 +9,6 @@ use App\Shared\Infrastructure\CQRS\Contract\CommandMessage;
 
 class AddDocumentToSigningCommandMessage implements CommandMessage
 {
-    private array $response;
-
     public function __construct
     (
         private AddDocumentToSigningDTO $addDocumentToSigningDTO
@@ -20,17 +18,5 @@ class AddDocumentToSigningCommandMessage implements CommandMessage
     public function getAddDocumentToSigningDTO(): AddDocumentToSigningDTO
     {
         return $this->addDocumentToSigningDTO;
-    }
-
-    public function getResponse(): array
-    {
-        return $this->response;
-    }
-
-    public function setResponse(array $response): AddDocumentToSigningCommandMessage
-    {
-        $this->response = $response;
-
-        return $this;
     }
 }
