@@ -11,9 +11,6 @@ class AddDocumentToSigningCommandHandler implements CommandHandler
 {
     public function __invoke(AddDocumentToSigningCommandMessage $message): void
     {
-        $message->setResponse([
-                                  'test' => $message->getAddDocumentToSigningDTO()
-                                      ->getDoc(),
-                              ]);
+
     }
 }

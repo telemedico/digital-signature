@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\DigitalSignature\UI\Api\Model;
 
-use App\DigitalSignature\UI\Api\Controller\AddDocumentToSigningController;
+use App\DigitalSignature\UI\Api\Controller\TestController;
 use Prugala\RequestDto\Dto\RequestDtoInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Annotation\ApiResource;
 
-class AddDocumentToSigning implements RequestDtoInterface
+class TestModel implements RequestDtoInterface
 {
     #[Assert\NotBlank]
     public string $id;
