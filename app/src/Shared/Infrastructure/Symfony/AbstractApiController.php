@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Shared\Infrastructure\Symfony;
 
 use App\Shared\Infrastructure\CQRS\Contract\CommandBus;
+use App\Shared\Infrastructure\CQRS\Contract\QueryBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -18,7 +19,8 @@ abstract class AbstractApiController extends AbstractController
         private SerializerInterface $serializer,
         private ValidatorInterface $validator,
         private RequestStack $requestStack,
-        protected CommandBus $commandBus
+        protected CommandBus $commandBus,
+        protected QueryBus $queryBus
     ) {
     }
 
