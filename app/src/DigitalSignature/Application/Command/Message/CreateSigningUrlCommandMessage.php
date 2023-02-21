@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace App\DigitalSignature\Application\Command\Message;
 
-use App\DigitalSignature\Application\Command\DTO\CreateSingingUrlDTO;
+use App\DigitalSignature\Application\Command\DTO\CreateSigningUrlDTO;
 use App\DigitalSignature\Domain\WriteModel\ViewModel\SingingUrl;
 use App\Shared\Infrastructure\CQRS\Contract\CommandMessage;
 
-class CreateSingingUrlCommandMessage implements CommandMessage
+class CreateSigningUrlCommandMessage implements CommandMessage
 {
     private SingingUrl $singingUrl;
 
     public function __construct
     (
-        private CreateSingingUrlDTO $createSingingUrlDTO
+        private CreateSigningUrlDTO $createSingingUrlDTO
     ) {
     }
 
-    public function getCreateSingingUrlDTO(): CreateSingingUrlDTO
+    public function getCreateSingingUrlDTO(): CreateSigningUrlDTO
     {
         return $this->createSingingUrlDTO;
     }
@@ -28,7 +28,7 @@ class CreateSingingUrlCommandMessage implements CommandMessage
         return $this->singingUrl;
     }
 
-    public function setSingingUrl(SingingUrl $singingUrl): CreateSingingUrlCommandMessage
+    public function setSingingUrl(SingingUrl $singingUrl): CreateSigningUrlCommandMessage
     {
         $this->singingUrl = $singingUrl;
 

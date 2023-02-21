@@ -15,6 +15,25 @@ services:
       - monolith_internal
       - telemedi_nginx_proxy
 
+  esignature_db:
+    container_name: esignature_db
+    image: postgres:13.3
+    ports:
+      - "4321:5432"
+    environment:
+      POSTGRES_DB: esignature_db
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    volumes:
+      - esignature_db_storage:/var/lib/postgresql/data
+    networks:
+      - monolith_network
+      - monolith_internal
+
+volumes:
+  esignature_db_storage:
+    driver: local
+
 networks:
   monolith_internal:
     internal: true
