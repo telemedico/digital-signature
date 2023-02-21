@@ -27,6 +27,7 @@ services:
         resource: '../src/DigitalSignature/'
         exclude:
             - '../src/DigitalSignature/UI/Api/Model/'
+            - '../src/DigitalSignature/Infrastructure/Doctrine/Migrations/'
 
     _instanceof:
         App\Shared\Infrastructure\CQRS\Contract\CommandHandler:

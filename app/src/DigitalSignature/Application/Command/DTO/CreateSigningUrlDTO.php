@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\DigitalSignature\Application\Command\DTO;
 
-class CreateSingingUrlDTO
+class CreateSigningUrlDTO
 {
     public function __construct(
         private string $successUrl,

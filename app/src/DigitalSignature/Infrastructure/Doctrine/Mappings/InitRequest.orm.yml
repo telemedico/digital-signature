@@ -1,0 +1,9 @@
+App\Ports\Entity\InitRequest:
+    table: pz.init_request
+    type: entity
+    id: { redirectUrl: { type: string, generator: { strategy: NONE } } }
+    fields:
+        requestInfo: { type: string, nullable: true }
+        authSubject: { type: string, nullable: true }
+        extra: { type: string, nullable: true }
+        createdAt: { type: datetime_immutable }

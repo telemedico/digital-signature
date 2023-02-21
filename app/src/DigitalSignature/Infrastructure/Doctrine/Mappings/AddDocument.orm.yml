@@ -1,0 +1,9 @@
+App\Ports\Entity\AddDocument:
+    table: pz.add_document
+    type: entity
+    id: { id: { type: integer, generator: { strategy: AUTO } } }
+    fields:
+        requestUrl: { type: string }
+        documentInfo: { type: string}
+        requestWideId: { type: integer }
+        createdAt: { type: datetime_immutable }
